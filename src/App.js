@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+//TODOS
+//1. Make sure components are working
+//2. Set up Github
+//3. Set up routing
+
+
+import Login from "./components/Login";
+import Signup from "./components/Signup";
+import Welcome from "./components/Welcome";
+import Adventure from "./components/Adventure";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<>
+			<div>Test</div>
+			<Login />
+			<Signup />
+			<Welcome />
+			<Adventure />
+		</>
+	);
 }
 
 export default App;
