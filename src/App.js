@@ -1,7 +1,7 @@
 //TODOS
-//1. Make sure components are working
-//2. Set up Github
-//3. Set up routing
+//1. Make sure components are working - DONE
+//2. Set up Github - DONE
+//3. Set up routing - what routing do we need? 
 
 import {Routes, Route, BrowserRouter} from "react-router-dom";
 import Login from "./components/Login";
