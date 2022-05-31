@@ -1,13 +1,63 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  	margin: 0;
+	height: 100vh;
+	width: 100vw;
+  	display: flex;
+  	justify-content: center;
+  	align-items: center;  
+  	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  	-webkit-font-smoothing: antialiased;
+  	-moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.adventure-container {
+	display: flex; 
+	justify-content: space-around;
+	align-items: center;
+	flex-direction: column;
+	width: 700px; 
+	min-height: 600px;
+	border: 2px solid red;
+}
+
+.adventure-title {
+	text-transform: uppercase;
+}
+
+.adventure-grid {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	width: 650px; 
+	height: 400px; 
+}
+
+.grid-item {
+	display: flex; 
+	justify-content: center;
+	align-items: center;
+	width: 160px;
+	height: 200px;
+	border: solid 1px pink;
+}
+
+.button {
+	width: 170px;
+	height: 50px;
+	font-size: 21px;
+	border: none;
+	text-transform: uppercase;
+}
+
+.button:hover {
+	background-color: #cacaca;
+	border: none;
 }

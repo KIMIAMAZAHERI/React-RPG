@@ -5,8 +5,8 @@
 //When user logs in they can choose an opponent and start match
 //Opponent is a random character with random attack and random everything. 
 
-//There is a grid with pokemons. 
-//User chooses a character to play so there is an onClick that sets the player
+//There is a grid with pokemons. 7 characters and 1 random. 
+//User chooses a character to play so there is an onClick that sets the player character
 //User then clicks button to start match (ie another onClick that opens a div with a background)
 //Button for attack (also onClick)
 //When clicking button it sets of a random attack from characters specifications
@@ -17,9 +17,24 @@
 //Is the health bar included in the API? 
 //Second component for the match? Arena.js ? 
 
+import {useState, useEffect} from "react";
+
 const Adventure = () => {
     return (
-        <div>Adventure time</div>
+        <div className="adventure-container">
+            <h1 className="adventure-title">choose character</h1>
+            <div className="adventure-grid">
+                <div className="grid-item item-1">1</div>
+                <div className="grid-item item-2">2</div>
+                <div className="grid-item item-3">3</div>
+                <div className="grid-item item-4">4</div>
+                <div className="grid-item item-5">5</div>
+                <div className="grid-item item-6">6</div>
+                <div className="grid-item item-7">7</div>
+                <div className="grid-item item-8">8</div>
+            </div>
+            <button className="button">start match</button>
+        </div>
     )
 }
 
