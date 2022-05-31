@@ -11,16 +11,16 @@
 //Need function for a miss as well. Might be an extra. 
 
 import {useState, useEffect} from "react";
+import { v4 as uuidv4 } from "uuid";
 import GridItem from "./GridItem";
 
 const initCharacter = {
-    pokemonName: "",
     pokemonSpriteUrl: "", 
 }
 
 const Adventure = () => {
     const [character, setCharacter] = useState(initCharacter);
-
+    
     const randomPokemonId = Math.floor(Math.random() * 151) + 1;
 
     const getCharacter = async () => {
@@ -28,21 +28,21 @@ const Adventure = () => {
         const json = response.json();
 
         setCharacter({
-            pokemonName: json.name,
-            pokemonSpriteUrl: json.sprites,
-        })
+            pokemonSpriteUrl: json.front_default, 
+        });
     }
 
+    console.log(randomPokemonId);
 
     return (
         <div className="adventure-container">
             <h1 className="adventure-title">choose character</h1>
             <div className="adventure-grid">
                 <div className="grid-item">
-                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/80.png" />
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/95.png" />
                 </div>
                 <div className="grid-item">
-                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/79.png" />
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/69.png" />
                 </div>
             </div>
             <button className="button">start match</button>
