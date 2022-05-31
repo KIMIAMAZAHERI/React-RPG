@@ -20,6 +20,12 @@ const Adventure = () => {
             <div className="adventure-grid">
                 <GridItem />
                 <GridItem />
+                <GridItem />
+                <GridItem />
+                <GridItem />
+                <GridItem />
+                <GridItem />
+                <GridItem />
             </div>
             <button className="button">start match</button>
         </div>
