@@ -6,23 +6,27 @@
 //Question is if it needs to be a reusable component and function called from somewhere else
 //to avoid all grid items being the same? 
 
+
 import {useState, useEffect} from "react";
 
 const initCharacter = {
-    species: null,
+    pokemonName: "",
+    pokemonSpriteUrl: "",
 }
 
 const GridItem = () => {
     const [character, setCharacter] = useState(initCharacter); 
     //initialize state variables
 
+    const randomPokemonId = Math.floor(Math.random() * 151) + 1;
+
     // function to get data from api
     const getCharacter = async () => {
-        const response = await fetch("https://pokeapi.co/api/v2/pokemon/charmander");
+        const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${this.randomPokemonId}`);
         const json = await response.json();
 
         setCharacter({
-            species: json.species,
+            
         })
     }
 
