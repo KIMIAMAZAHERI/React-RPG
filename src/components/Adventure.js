@@ -14,42 +14,21 @@
 //Need function for a miss as well. Might be an extra. 
 
 import {useState, useEffect} from "react";
-
-const initCharacter = {
-    species: null,
-}
+import GridItem from "./GridItem";
 
 const Adventure = () => {
-    const [character, setCharacter] = useState(initCharacter); 
-    //initialize state variables
-
-    // function to get data from api
-    const getCharacter = async () => {
-        const response = await fetch("https://pokeapi.co/api/v2/pokemon/charmander");
-        const json = await response.json();
-
-        setCharacter({
-            species: json.species,
-        })
-    }
-
-    // load api data when component mounts 
-    useEffect(() => {
-        getCharacter();
-    })
-
     return (
         <div className="adventure-container">
             <h1 className="adventure-title">choose character</h1>
             <div className="adventure-grid">
-                <div className="grid-item item-1">1</div>
-                <div className="grid-item item-2">2</div>
-                <div className="grid-item item-3">3</div>
-                <div className="grid-item item-4">4</div>
-                <div className="grid-item item-5">5</div>
-                <div className="grid-item item-6">6</div>
-                <div className="grid-item item-7">7</div>
-                <div className="grid-item item-8">8</div>
+                <GridItem />
+                <GridItem />
+                <GridItem />
+                <GridItem />
+                <GridItem />
+                <GridItem />
+                <GridItem />
+                <GridItem />
             </div>
             <button className="button">start match</button>
         </div>
