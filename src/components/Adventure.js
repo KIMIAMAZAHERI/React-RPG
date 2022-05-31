@@ -5,7 +5,7 @@
 //When user logs in they can choose an opponent and start match
 //Opponent is a random character with random attack and random everything. 
 
-//There is a grid with pokemons. 7 characters and 1 random. 
+//There is a grid with pokemons. 8 random characters. 
 //User chooses a character to play so there is an onClick that sets the player character
 //User then clicks button to start match (ie another onClick that opens a div with a background)
 //Button for attack (also onClick)
@@ -13,13 +13,31 @@
 
 //Need function for a miss as well. Might be an extra. 
 
-//Question marks: 
-//Is the health bar included in the API? 
-//Second component for the match? Arena.js ? 
-
 import {useState, useEffect} from "react";
 
+const initCharacter = {
+    species: null,
+}
+
 const Adventure = () => {
+    const [character, setCharacter] = useState(initCharacter); 
+    //initialize state variables
+
+    // function to get data from api
+    const getCharacter = async () => {
+        const response = await fetch("https://pokeapi.co/api/v2/pokemon/charmander");
+        const json = await response.json();
+
+        setCharacter({
+            species: json.species,
+        })
+    }
+
+    // load api data when component mounts 
+    useEffect(() => {
+        getCharacter();
+    })
+
     return (
         <div className="adventure-container">
             <h1 className="adventure-title">choose character</h1>
