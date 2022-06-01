@@ -12,6 +12,7 @@ const GridItem = () => {
     const [choosePokemon, setChoosePokemon] = useState("");
 
     const randomPokemonId = Math.floor(Math.random() * 151) + 1;
+    console.log(randomPokemonId);
 
     const handleChoice = (e) => {
         e.preventDefault();
@@ -19,10 +20,11 @@ const GridItem = () => {
         console.log("du klickade");
         console.log(randomPokemonId); 
 
-        //onClick should setChoosePokemon to whatever src is.
-
         //Console log of randomPokemonId shows the same id as in the src
         //This need to be stored somehow so we can call the API to get attacks 
+
+        //onClick should setChoosePokemon to whatever src is.
+        //Can I do onChange and set a target value (randomPokemonId is value? current value?)
     }
 
     return (
