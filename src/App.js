@@ -10,6 +10,7 @@ import { v4 as uuidv4 } from "uuid";
 //import Signup from "./components/Signup";
 //import Welcome from "./components/Welcome";
 import Adventure from "./components/Adventure";
+import AdventureMatch from "./components/AdventureMatch";
 
 function App() {
 	return (

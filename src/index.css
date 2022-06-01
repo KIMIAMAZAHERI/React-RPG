@@ -49,6 +49,11 @@ code {
 	border: solid 1px pink;
 }
 
+.grid-character:hover {
+	background-color: turquoise;
+	border-radius: 50%;
+}
+
 .button {
 	width: 170px;
 	height: 50px;
@@ -60,4 +65,15 @@ code {
 .button:hover {
 	background-color: #cacaca;
 	border: none;
+}
+
+.match-background {
+	width: 100vw;
+	height: 100vh;
+}
+
+.match-container {
+	width: 700px; 
+	min-height: 600px;
+	border: 2px solid red;
 }

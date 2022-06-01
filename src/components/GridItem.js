@@ -6,15 +6,22 @@
 //Question is if it needs to be a reusable component and function called from somewhere else
 //to avoid all grid items being the same? 
 
-
 import {useState, useEffect} from "react";
 
 const GridItem = () => {
+    const [choosePokemon, setChoosePokemon] = useState("");
+
     const randomPokemonId = Math.floor(Math.random() * 151) + 1;
+
+    const handleChoice = (e) => {
+        e.preventDefault();
+        //onClick should setChoosePokemon to whatever src is. 
+        console.log("du klickade");
+    }
 
     return (
         <div className="grid-item">
-            <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${randomPokemonId}.png`} />
+            <img className="grid-character" onClick={handleChoice} src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${randomPokemonId}.png`} />
         </div>
     )
 }

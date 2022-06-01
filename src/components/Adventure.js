@@ -10,9 +10,21 @@
 
 //Need function for a miss as well. Might be an extra. 
 
+//Need handleSubmit
+//Need onClick
+
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+
 import GridItem from "./GridItem";
 
+
+
 const Adventure = () => {
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log("du valde gubbe och startade"); //This works. Needs to open AdventureMatch.js. 
+    }
 
     return (
         <div className="adventure-container">
@@ -27,12 +39,13 @@ const Adventure = () => {
                 <GridItem />
                 <GridItem />
             </div>
-            <button className="button">start match</button>
+            <button onClick={handleSubmit} className="button">start match</button>
         </div>
     )
 }
 
 export default Adventure;
+
 /*
 Tried to use state and stuff to get a picture from pokeapi. Tried 9 billion things. Did not work. 
 Realised randomPokemonId was the same as the number in url 
