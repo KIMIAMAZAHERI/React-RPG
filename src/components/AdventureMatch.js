@@ -5,12 +5,19 @@
 //and display in match-container
 //State is put in GridItem (choosePokemon, setChoosePokemon)
 
+//or just set image as background instead of this
+
+import Image from "./Image";
+import trees from "../images/trees.jpg";
+
 const AdventureMatch = () => {
     return (
         <div className="match-container">
-            HEJ
+
         </div>
     )
 }
 
 export default AdventureMatch;
+
+//<Image> <img src={trees} width={700} /> </Image> 

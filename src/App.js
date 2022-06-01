@@ -15,8 +15,9 @@ import AdventureMatch from "./components/AdventureMatch";
 function App() {
 	return (
 		<>
-			<div></div>
-			<Adventure />
+			<div>
+				<Adventure />
+			</div>
 		</>
 	);
 }
