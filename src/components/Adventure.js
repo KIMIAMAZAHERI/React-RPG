@@ -14,16 +14,25 @@
 //Need onClick
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-
+import { useState, useContext, useEffect } from "react";
 import GridItem from "./GridItem";
-
+import Button from "./Button";
 
 
 const Adventure = () => {
+    //I need to disable button until a character is chosen so I need a state. 
+    const [buttonDisabled, setButtonDisabled] = useState(true);
+
+    //Then I need to have an if else.
+    //if a character is not chosen button is disabled, if chosen button is active 
+    //But how is a character chosen? 
+    //onClick should setChoosePokemon to whatever randomPokemonId is
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log("du valde gubbe och startade"); //This works. Needs to open AdventureMatch.js. 
+        console.log("du valde gubbe och startade"); 
+        //This works. Needs to open AdventureMatch.js. 
+        //Need to make sure it doesn't start without choosing a character
     }
 
     return (
@@ -39,7 +48,7 @@ const Adventure = () => {
                 <GridItem />
                 <GridItem />
             </div>
-            <button onClick={handleSubmit} className="button">start match</button>
+            <Button className="button" type="submit" isDisabled={buttonDisabled} onClick={handleSubmit}>start match</Button>
         </div>
     )
 }

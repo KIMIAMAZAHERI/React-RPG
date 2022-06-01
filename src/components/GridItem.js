@@ -20,8 +20,9 @@ const GridItem = () => {
         console.log(randomPokemonId); 
 
         //onClick should setChoosePokemon to whatever src is.
+
         //Console log of randomPokemonId shows the same id as in the src
-        //This need to be stored somehow so we can call the API for that id = pokemon
+        //This need to be stored somehow so we can call the API to get attacks 
     }
 
     return (
