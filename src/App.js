@@ -18,7 +18,6 @@ function App() {
 		<>
 			<div>
 				<Adventure />
-				<AdventureMatch />
 			</div>
 		</>
 	);

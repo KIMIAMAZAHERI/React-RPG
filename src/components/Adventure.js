@@ -16,8 +16,6 @@ const Adventure = () => {
         e.preventDefault();
         console.log("du valde gubbe och startade"); 
         window.location = "/AdventureMatch" //needs to be fixed. google.com works lol 
-        //Need function for starting adventure match 
-        //Am I thinking of a link? 
     }
 
     return (
