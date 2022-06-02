@@ -5,7 +5,8 @@
 //and display in match-container
 //State is put in GridItem (choosePokemon, setChoosePokemon)
 
-//or just set image as background instead of this
+//Need function for a miss as well. Might be an extra. 
+
 
 import Image from "./Image";
 import trees from "../images/trees.jpg";
@@ -13,7 +14,7 @@ import trees from "../images/trees.jpg";
 const AdventureMatch = () => {
     return (
         <div className="match-container">
-
+            
         </div>
     )
 }

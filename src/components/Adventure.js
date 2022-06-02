@@ -1,18 +1,3 @@
-//Plan is to make a simple game using the pokeapi. 
-//When user logs in they can choose an opponent and start match
-//Opponent is a random character with random attack and random everything. 
-
-//There is a grid with pokemons. 8 random characters. 
-//User chooses a character to play so there is an onClick that sets the player character
-//User then clicks button to start match (ie another onClick that opens a div with a background)
-//Button for attack (also onClick)
-//When clicking button it sets of a random attack from characters specifications
-
-//Need function for a miss as well. Might be an extra. 
-
-//Need handleSubmit
-//Need onClick
-
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { useState, useContext, useEffect } from "react";
 import GridItem from "./GridItem";
@@ -22,17 +7,22 @@ import Button from "./Button";
 const Adventure = () => {
     //I need to disable button until a character is chosen so I need a state. 
     const [buttonDisabled, setButtonDisabled] = useState(true);
-
     //Then I need to have an if else.
     //if a character is not chosen button is disabled, if chosen button is active 
     //But how is a character chosen? 
     //onClick should setChoosePokemon to whatever randomPokemonId is
 
+
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log("du valde gubbe och startade"); 
         //This works. Needs to open AdventureMatch.js. 
-        //Need to make sure it doesn't start without choosing a character
+        //Need to make sure it doesn't start without choosing a character (above)
+    
+        //function for starting adventure match 
+        //Am I thinking of a link? 
+        //but i also need to bring the character with me? 
+
     }
 
     return (
@@ -48,7 +38,7 @@ const Adventure = () => {
                 <GridItem />
                 <GridItem />
             </div>
-            <Button className="button" type="submit" isDisabled={buttonDisabled} onClick={handleSubmit}>start match</Button>
+            <Button type="submit" isDisabled={buttonDisabled} onClick={handleSubmit}>start match</Button>
         </div>
     )
 }
@@ -97,7 +87,7 @@ console.log(character);
     ----------------
 
     <div className="grid-item">
-        {`${character.pokemonSpriteUrl}`}
+        {`${character}`}
     </div>
     <div className="grid-item">
         {`${character.pokemonSpriteUrl}`}
