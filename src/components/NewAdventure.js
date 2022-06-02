@@ -3,9 +3,10 @@ import Button from "./Button";
 //import GridItem from "./GridItem";
 
 const initCharacter = {
-    pokemonSpriteUrl: "",
-    pokemonName: "", 
-    pokemonMoves: [], 
+    pokemonSpriteUrl: null,
+    pokemonName: null, 
+    pokemonMoves: null, 
+    pokemonID: null,
 }
 
 const NewAdventure = () => {
@@ -18,16 +19,17 @@ const NewAdventure = () => {
         const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${randomPokemonId}`);
         const json = await response.json();
 
-    setCharacter({
-        pokemonSpriteUrl: json.data.sprites.front_default, 
-        pokemonName: json.data.name, 
-        pokemonMoves: json.data.moves, 
-    });
+        setCharacter({
+            pokemonSpriteUrl: json.sprites.front_default, 
+            pokemonName: json.name, 
+            pokemonMoves: json.moves, 
+        });
     }
 
     useEffect (() => {
         getCharacter();
     }, [])
+
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -39,10 +41,10 @@ const NewAdventure = () => {
             <h1 className="adventure-title">choose character</h1>
             <div className="adventure-grid">
                 <div className="grid-item">
-                    {`${character.pokemonSpriteUrl}`}
+                    <img src={`${character.pokemonSpriteUrl}`} />
                 </div>
                 <div className="grid-item">
-                    {`${character}`}
+                    <img src={`${character.pokemonSpriteUrl}`} />
                 </div>
             </div>
             <Button type="submit" isDisabled={buttonDisabled} onClick={handleSubmit}>start match</Button>

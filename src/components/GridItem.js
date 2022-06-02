@@ -8,19 +8,20 @@
 
 import {useState, useEffect} from "react";
 
-const GridItem = () => {
-    const [choosePokemon, setChoosePokemon] = useState("");
+const GridItem = ({thisPokemonId}) => {
+    const [choosePokemon, setChoosePokemon] = useState(null);
 
     const randomPokemonId = Math.floor(Math.random() * 151) + 1;
-    console.log(randomPokemonId);
 
     const handleChoice = (e) => {
         e.preventDefault();
 
         console.log("du klickade");
-        console.log(randomPokemonId); 
 
-        //Console log of randomPokemonId shows the same id as in the src
+        {thisPokemonId = randomPokemonId;}
+        console.log(thisPokemonId, randomPokemonId);
+
+        //Console log of randomPokemonId shows the same id as in the src 
         //This need to be stored somehow so we can call the API to get attacks 
 
         //onClick should setChoosePokemon to whatever src is.

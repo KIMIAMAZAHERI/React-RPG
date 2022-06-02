@@ -1,28 +1,23 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, Link, Router } from "react-router-dom";
 import { useState, useContext, useEffect } from "react";
 import GridItem from "./GridItem";
-import Button from "./Button";
+import AdventureMatch from "./AdventureMatch";
 
 
 const Adventure = () => {
-    //I need to disable button until a character is chosen so I need a state. 
     const [buttonDisabled, setButtonDisabled] = useState(true);
     //Then I need to have an if else.
     //if a character is not chosen button is disabled, if chosen button is active 
     //But how is a character chosen? 
-    //onClick should setChoosePokemon to whatever randomPokemonId is
-
+    //onClick should setChoosePokemon to whatever randomPokemonId is (in GridItem) 
+    //Need to do the function in GridItema and pass it here? 
 
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log("du valde gubbe och startade"); 
-        //This works. Needs to open AdventureMatch.js. 
-        //Need to make sure it doesn't start without choosing a character (above)
-    
-        //function for starting adventure match 
+        window.location = "/AdventureMatch" //needs to be fixed. google.com works lol 
+        //Need function for starting adventure match 
         //Am I thinking of a link? 
-        //but i also need to bring the character with me? 
-
     }
 
     return (
@@ -38,7 +33,7 @@ const Adventure = () => {
                 <GridItem />
                 <GridItem />
             </div>
-            <Button type="submit" isDisabled={buttonDisabled} onClick={handleSubmit}>start match</Button>
+            <button type="submit" className="button" disabled={buttonDisabled} onClick={handleSubmit}>start match</button>
         </div>
     )
 }
@@ -87,7 +82,7 @@ console.log(character);
     ----------------
 
     <div className="grid-item">
-        {`${character}`}
+        {`${character.pokemonSpriteUrl}`}
     </div>
     <div className="grid-item">
         {`${character.pokemonSpriteUrl}`}
