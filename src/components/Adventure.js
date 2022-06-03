@@ -1,35 +1,65 @@
-import { BrowserRouter, Route, Routes, Link, Router } from "react-router-dom";
 import { useState, useContext, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import GridItem from "./GridItem";
 import AdventureMatch from "./AdventureMatch";
+import { isDisabled } from "@testing-library/user-event/dist/utils";
 
 
-const Adventure = () => {
+const url = "https://pokeapi.co/api/v2/pokemon/2";
+const urlRandom = "https://pokeapi.co/api/v2/pokemon/"
+
+const initPokemon = {
+    pokemonSpriteUrl: null,
+    pokemonName: null, 
+    pokemonMoves: null, 
+    pokemonId: null,
+}
+
+const Adventure = ({pokemonSpriteUrl, name, moves, id}) => {
     const [buttonDisabled, setButtonDisabled] = useState(true);
-    //Then I need to have an if else.
-    //if a character is not chosen button is disabled, if chosen button is active 
-    //But how is a character chosen? 
-    //onClick should setChoosePokemon to whatever randomPokemonId is (in GridItem) 
-    //Need to do the function in GridItema and pass it here? 
+    const [pokemon, setPokemon] = useState(initPokemon);
+
+    const randomPokemonId = Math.floor(Math.random() * 151) + 1;
+
+    const getPokemon = async () => {
+        const response = await fetch(`${urlRandom}${randomPokemonId}`);
+        const data = await response.json();
+        
+        setPokemon({
+            pokemonSpriteUrl: data.sprites.front_default, 
+            pokemonName: data.name, 
+            pokemonMoves: data.moves, 
+            pokemonId: data.id
+        }); 
+    }
+
+    useEffect(() => {
+        getPokemon();
+    }, [])
+
+    const handleChoice = (e) => {
+        e.preventDefault();
+        //set the pokemon that was chosen
+        console.log(`You chose ${pokemon.pokemonName}`);
+        setButtonDisabled(false);
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log("du valde gubbe och startade"); 
-        window.location = "/AdventureMatch" //needs to be fixed. google.com works lol 
+        //should open /adventureMatch
     }
 
     return (
         <div className="adventure-container">
             <h1 className="adventure-title">choose character</h1>
             <div className="adventure-grid">
-                <GridItem />
-                <GridItem />
-                <GridItem />
-                <GridItem />
-                <GridItem />
-                <GridItem />
-                <GridItem />
-                <GridItem />
+                <GridItem>
+                    <img onClick={handleChoice} src={pokemon.pokemonSpriteUrl} />
+                </GridItem>
+                <GridItem>
+                    <img onClick={handleChoice} src={pokemon.pokemonSpriteUrl} />
+                </GridItem>
             </div>
             <button type="submit" className="button" disabled={buttonDisabled} onClick={handleSubmit}>start match</button>
         </div>

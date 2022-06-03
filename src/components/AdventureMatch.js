@@ -24,12 +24,12 @@ const AdventureMatch = ({thisPokemonId}) => {
 
     const getCharacter = async () => {
         const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${randomPokemonId}`);
-        const json = await response.json();
+        const data = await response.json();
 
         setCharacter({
-            pokemonSpriteUrl: json.sprites.front_default, 
-            pokemonName: json.name, 
-            pokemonMoves: json.moves, 
+            pokemonSpriteUrl: data.sprites.front_default, 
+            pokemonName: data.name, 
+            pokemonMoves: data.moves, 
         });
     }
 
