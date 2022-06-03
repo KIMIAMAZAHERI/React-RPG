@@ -1,6 +1,7 @@
 //Extra: grid will show name of pokemon and possibly some type of stat. 
 
 import {useState, useEffect} from "react";
+import Adventure from "./Adventure";
 
 const POKE_API = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/"
 
@@ -8,13 +9,19 @@ const POKE_API = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprit
 const GridItem = ({children}) => {
     return (
         <div className="grid-item">
-            {children}
+             {children}
         </div>
     )
 }
 
 export default GridItem;
 
+/*
+pokemonSpriteUrl: data.sprites.front_default, 
+pokemonName: data.name, 
+pokemonMoves: data.moves, 
+pokemonId: data.id
+*/
 /*
 ------------------------
 BEFORE COACHING

@@ -22,6 +22,7 @@ code {
 	justify-content: space-around;
 	align-items: center;
 	flex-direction: column;
+	flex-wrap: wrap;
 	width: 700px; 
 	min-height: 600px;
 	border: 2px solid red;
@@ -36,7 +37,8 @@ code {
 	flex-wrap: wrap;
 	justify-content: center;
 	align-items: center;
-	width: 650px; 
+	flex-direction: column;
+	width: 550px; /*650px med fler items*/ 
 	height: 400px; 
 }
 
@@ -44,9 +46,9 @@ code {
 	display: flex; 
 	justify-content: center;
 	align-items: center;
+	flex-direction: column;
 	width: 160px;
 	height: 200px;
-	border: solid 1px pink;
 }
 
 .grid-character:hover {

@@ -2,11 +2,6 @@ import { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import GridItem from "./GridItem";
 import AdventureMatch from "./AdventureMatch";
-import { isDisabled } from "@testing-library/user-event/dist/utils";
-
-
-const url = "https://pokeapi.co/api/v2/pokemon/2";
-const urlRandom = "https://pokeapi.co/api/v2/pokemon/"
 
 const initPokemon = {
     pokemonSpriteUrl: null,
@@ -15,7 +10,37 @@ const initPokemon = {
     pokemonId: null,
 }
 
-const Adventure = ({pokemonSpriteUrl, name, moves, id}) => {
+const pokemonData = [{
+    pokemonName: "",
+    pokemonSpriteUrl: "https://pokeapi.co/api/v2/pokemon/57",
+    pokemonId: 1, 
+    pokemonMoves: [],
+},
+{
+    pokemonName: "",
+    pokemonSpriteUrl: "https://pokeapi.co/api/v2/pokemon/106", 
+    pokemonId: 2,
+    pokemonMoves: [],
+}, 
+{
+    pokemonName: "venusaur",
+    pokemonSpriteUrl: "https://pokeapi.co/api/v2/pokemon/3", 
+    pokemonId: 3,
+    pokemonMoves: [],
+},
+{
+    name: "starmie",
+    url: "https://pokeapi.co/api/v2/pokemon/121", 
+    id: 4,
+    pokemonMoves: [],
+}
+]
+
+
+const url = "https://pokeapi.co/api/v2/pokemon/2";
+const urlRandom = "https://pokeapi.co/api/v2/pokemon/"; //`${urlRandom}${randomPokemonId}`
+
+const Adventure = () => {
     const [buttonDisabled, setButtonDisabled] = useState(true);
     const [pokemon, setPokemon] = useState(initPokemon);
 
@@ -37,11 +62,19 @@ const Adventure = ({pokemonSpriteUrl, name, moves, id}) => {
         getPokemon();
     }, [])
 
+    /*
+    {pokemon.map((p, i) => (
+        <div key={i}>
+            <GridItem id={p.id} name={p.name} />
+        </div>)
+    )}
+    */
+
     const handleChoice = (e) => {
-        e.preventDefault();
         //set the pokemon that was chosen
-        console.log(`You chose ${pokemon.pokemonName}`);
+        console.log(`You chose ${pokemon.pokemonName} id ${pokemon.pokemonId}`);
         setButtonDisabled(false);
+        //need to choose one of the pokemons attacks from the array at random. 
     }
 
     const handleSubmit = (e) => {
@@ -57,9 +90,6 @@ const Adventure = ({pokemonSpriteUrl, name, moves, id}) => {
                 <GridItem>
                     <img onClick={handleChoice} src={pokemon.pokemonSpriteUrl} />
                 </GridItem>
-                <GridItem>
-                    <img onClick={handleChoice} src={pokemon.pokemonSpriteUrl} />
-                </GridItem>
             </div>
             <button type="submit" className="button" disabled={buttonDisabled} onClick={handleSubmit}>start match</button>
         </div>
@@ -67,6 +97,13 @@ const Adventure = ({pokemonSpriteUrl, name, moves, id}) => {
 }
 
 export default Adventure;
+
+/*
+<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/57.png" />
+<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/106.png" />
+<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png" />
+<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/121.png" />
+*/
 
 /*
 Tried to use state and stuff to get a picture from pokeapi. Tried 9 billion things. Did not work. 

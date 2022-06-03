@@ -19,7 +19,7 @@ const initCharacter = {
 
 const randomPokemonId = Math.floor(Math.random() * 151) + 1;
 
-const AdventureMatch = ({thisPokemonId}) => {
+const AdventureMatch = () => {
     const [character, setCharacter] = useState(initCharacter);
 
     const getCharacter = async () => {

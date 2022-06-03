@@ -4,7 +4,7 @@ const CharacterContext = createContext();
 
 export const CharacterProvider = ({children}) => {
     const [isLoading, setIsLoading] = useState(true);
-    const [character, setCharacter] = useState([
+    const [pokemon, setPokemon] = useState([
         //data
     ])
 
