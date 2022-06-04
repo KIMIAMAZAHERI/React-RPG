@@ -24,7 +24,7 @@ code {
 	flex-direction: column;
 	flex-wrap: wrap;
 	width: 700px; 
-	min-height: 600px;
+	min-height: 700px;
 	border: 2px solid red;
 }
 
@@ -39,7 +39,7 @@ code {
 	align-items: center;
 	flex-direction: column;
 	width: 550px; /*650px med fler items*/ 
-	height: 400px; 
+	height: 500px; 
 }
 
 .grid-item {

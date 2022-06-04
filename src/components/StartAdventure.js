@@ -1,55 +1,51 @@
 import { useState } from "react";
 import GridItem from "./GridItem";
 
-const initPokemon = {
-    pokemonSpriteUrl: null,
-    pokemonName: null, 
-    pokemonMoves: null, 
-    pokemonId: null,
-}
+const gridPokemons = [
+    {
+        id: 1,
+        moves: [],
+        name: "Primeape",
+        imgUrl: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/57.png", 
+        url: "https://pokeapi.co/api/v2/pokemon/57"
+    },
+    {
+        id: 2,
+        moves: [],
+        name: "Hitmonlee",
+        imgUrl: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/106.png", 
+        url: "https://pokeapi.co/api/v2/pokemon/106"
+    },
+    {
+        id: 4,
+        moves: [],
+        name: "Venusaur",
+        imgUrl: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png",
+        url: "https://pokeapi.co/api/v2/pokemon/3" 
+    },
+    {
+        id: 4,
+        moves: [],
+        name: "starmie",
+        imgUrl: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/121.png",
+        url: "https://pokeapi.co/api/v2/pokemon/121" 
+    },
+];
 
 const StartAdventure = () => {
-    const [pokemon, setPokemon] = useState();
+    const [pokemon, setPokemon] = useState(gridPokemons);
     const [buttonDisabled, setButtonDisabled] = useState(true);
 
-    const gridPokemons = [
-        {
-            pokemonId: 1,
-            pokemonMoves: [],
-            pokemonName: "Primeape",
-            imgUrl: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/57.png", 
-            url: "https://pokeapi.co/api/v2/pokemon/57"
-        },
-        {
-            pokemonId: 2,
-            pokemonMoves: [],
-            pokemonName: "Hitmonlee",
-            imgUrl: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/106.png", 
-            url: "https://pokeapi.co/api/v2/pokemon/106"
-        },
-        {
-            pokemonId: 3,
-            pokemonMoves: [],
-            pokemonName: "Venusaur",
-            imgUrl: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png",
-            url: "https://pokeapi.co/api/v2/pokemon/3" 
-        },
-        {
-            pokemonId: 4,
-            pokemonMoves: [],
-            pokemonName: "starmie",
-            imgUrl: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/121.png",
-            url: "https://pokeapi.co/api/v2/pokemon/121" 
-        },
-    ];
+//  console.log(pokemon);
 
-    console.log(gridPokemons[2].pokemonName); 
-
-    const handleChoice = () => {
-        console.log("You made a choice")
+    const handleChoice = (e) => {
+        console.log("You made a choice");
+        //need to set state
+        //so I need to fetch data from api
+        setButtonDisabled(false);
     }
 
-    const handleSubmit = () => {
+    const handleSubmit = (e) => {
         console.log("you clicked");
     }
     
@@ -57,14 +53,16 @@ const StartAdventure = () => {
     <div className="adventure-container">
         <h1 className="adventure-title">choose character</h1>
             <div className="adventure-grid">
-                {
-                    gridPokemons.map(pObj=>(
+                <GridItem>
+                    {
+                        gridPokemons.map(pObj=>(
                             <GridItem>
-                                <div className="grid-character" onClick={handleChoice} key={pObj.pokemonId}><img src={pObj.imgUrl} /></div>
-                                <p key={pObj.pokemonId}>{pObj.pokemonName}</p>
+                                <div className="grid-character" key={pObj.imgUrl}><img onClick={handleChoice} src={pObj.imgUrl} /></div>
+                                <p key={pObj.name}>{pObj.name}</p>
                             </GridItem>
-                    ))
-                }
+                        ))
+                    }
+                </GridItem>
             </div>
         <button type="submit" disabled={buttonDisabled} onClick={handleSubmit} className="button">start match</button>
     </div>
@@ -72,6 +70,43 @@ const StartAdventure = () => {
 }
 
 export default StartAdventure;
+
+/*
+                {
+                    gridPokemons.map(pObj=>(
+                        <GridItem>
+                            <div className="grid-character" key={pObj.imgUrl} ><img onClick={handleChoice} src={pObj.imgUrl} /></div>
+                            <p key={pObj.pokemonName} >{pObj.pokemonName}</p>
+                        </GridItem>
+                    ))
+                }
+
+    -----
+    .map notes 
+
+    Object.values(gridPokemons).map(grids => console.log(grids))
+    logs the data in the array
+    cant pull the image
+    so will put img as img source and just keep the data there
+
+    const gridDisplay = () => {
+        Object.values(gridPokemons).map(grids => console.log(grids))
+    }
+
+    and in GridItem: 
+                        {
+                        gridPokemons.map((grids) => (
+                            <img onClick={handleChoice} src={grids.imgUrl}/>
+                        ))
+                    }
+
+
+*/
+
+
+
+
+
 
 /*
 starting over completely. 
