@@ -1,11 +1,13 @@
-//Button which opens a modal
-//Modal contains a small form - email, password, submit button
-//No functionality needed
+import './login.css';
+import React from 'react';
+import Form from "./components/Form";
 
-const Login = () => {
-    return (
-        <div>login</div>
-    )
+function Login() {
+  return (
+    <div>
+      <Form />
+    </div>
+  );
 }
 
 export default Login;
